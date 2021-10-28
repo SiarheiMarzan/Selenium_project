@@ -17,7 +17,4 @@ public abstract class AbstractPage {
         return driver;
     }
 
-    public String getPageTitle() {
-        return driver.getTitle();
-    }
 }
