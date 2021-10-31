@@ -1,12 +1,9 @@
 package pagegoogleobjectmodel.test;
 
-import org.openqa.selenium.WebDriver;
 import org.testng.Assert;
-import org.testng.annotations.BeforeClass;
 import org.testng.annotations.Listeners;
 import org.testng.annotations.Test;
 import pagegoogleobjectmodel.driver.DriverSingleton;
-import pagegoogleobjectmodel.pages.AbstractPage;
 import pagegoogleobjectmodel.pages.GoogleCalculatorPage;
 import pagegoogleobjectmodel.pages.GoogleMailPage;
 import pagegoogleobjectmodel.pages.GoogleSearchPage;

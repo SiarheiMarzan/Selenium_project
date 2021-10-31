@@ -21,6 +21,7 @@ public class GoogleSearchPage extends AbstractPage {
     }
 
     public GoogleSearchPage openPage() {
+        logger.info("Start of the program");
         driver.get("https://cloud.google.com/");
         return this;
     }

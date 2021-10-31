@@ -12,8 +12,6 @@ import java.io.IOException;
 
 public class GoogleCalculatorPage extends AbstractPage {
 
-    private final By firstIframe = By.cssSelector("[src*='/products/calculator/']");
-
     private final Logger logger = LogManager.getRootLogger();
 
     private By dataCenterLocation = By.xpath("//md-option/div[contains(text(),'Frankfurt (europe-west3')]");
