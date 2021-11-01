@@ -23,15 +23,27 @@ public class GoogleCloudTest {
 
         googleSearchPage.openPage().cloudGoogleSearch("Google Cloud Platform Pricing Calculator").moveSearhResult();
         googleCalculatorPage.getIframe().activeComputerEngine()
-                .activeInstancesAndInput("4").choiceValue("Series", "n1").
-                choiceValue("Instance type", "CP-COMPUTEENGINE-VMIMAGE-N1-STANDARD-8").checkGpu().
-                choiseNumberOfGpus().choiseNumberOfGpus().typeGpu().choiseLocalSsd().locationDataCenter().
-                commitedUsage().addToEstimate();
+                .activeInstancesAndInput("4")
+                .choiceValue("Series", "n1")
+                .choiceValue("Instance type", "CP-COMPUTEENGINE-VMIMAGE-N1-STANDARD-8")
+                .checkGpu()
+                .choiseNumberOfGpus()
+                .choiseNumberOfGpus()
+                .typeGpu()
+                .choiseLocalSsd()
+                .locationDataCenter()
+                .commitedUsage()
+                .addToEstimate();
         String calculatorCost = googleCalculatorPage.calculatedTotalEstimatedCost();
         googleCalculatorPage.choiseEmailEstimate();
-        googleMailPage.transitionNewPage().copyEmail().returnPageBack();
-        googleCalculatorPage.emailEstimateClick().inputCopyEmail().sendMail();
-        googleMailPage.transitPageToEmail().openEmail();
+        googleMailPage.transitionNewPage()
+                .copyEmail()
+                .returnPageBack();
+        googleCalculatorPage.emailEstimateClick()
+                .inputCopyEmail()
+                .sendMail();
+        googleMailPage.transitPageToEmail()
+                .openEmail();
         String emailCost = googleMailPage.getCostFromEmail();
         Assert.assertTrue(calculatorCost.contains(emailCost),"Invalid cost");
         driverSingleton.closeDriver();
