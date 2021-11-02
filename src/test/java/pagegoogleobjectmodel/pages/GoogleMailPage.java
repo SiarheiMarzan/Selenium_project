@@ -62,11 +62,6 @@ public class GoogleMailPage extends AbstractPage {
 
     public GoogleMailPage openEmail() {
         logger.info("Open the received email");
-        try {
-            Thread.sleep(10000);
-        } catch (InterruptedException e) {
-            e.printStackTrace();
-        }
         buttonOpenEmail.click();
         return this;
     }
