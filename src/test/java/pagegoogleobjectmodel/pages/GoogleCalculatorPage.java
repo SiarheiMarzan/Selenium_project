@@ -189,6 +189,7 @@ public class GoogleCalculatorPage extends AbstractPage {
 
     public GoogleCalculatorPage inputCopyEmail() {
         logger.info("Inserting the copied email address from the created mail");
+        //original version
 //        WebElement fieldInput = copyInFieldEmail;
 //        fieldInput.click();
 //        String myText = null;
