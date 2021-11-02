@@ -3,7 +3,10 @@ package pagegoogleobjectmodel.pages;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 import org.openqa.selenium.JavascriptExecutor;
+import org.openqa.selenium.Keys;
 import org.openqa.selenium.WebElement;
+import org.openqa.selenium.interactions.Action;
+import org.openqa.selenium.interactions.Actions;
 import org.openqa.selenium.support.FindBy;
 
 import java.util.ArrayList;
@@ -41,8 +44,11 @@ public class GoogleMailPage extends AbstractPage {
 
     public GoogleMailPage copyEmail() {
         logger.info("Click on the copy button address email");
-        WebElement emailBCopy = buttonCopyEmail;
-        emailBCopy.click();
+        Actions actionProvider = new Actions(driver);
+        Action keydown = actionProvider.keyDown(Keys.CONTROL).sendKeys("c").build();
+        keydown.perform();
+//        WebElement emailBCopy = buttonCopyEmail;
+//        emailBCopy.click();
         return this;
     }
 
