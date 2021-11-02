@@ -47,8 +47,6 @@ public class GoogleMailPage extends AbstractPage {
         Actions actionProvider = new Actions(driver);
         Action keydown = actionProvider.keyDown(Keys.CONTROL).sendKeys("c").build();
         keydown.perform();
-//        WebElement emailBCopy = buttonCopyEmail;
-//        emailBCopy.click();
         return this;
     }
 

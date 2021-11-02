@@ -45,7 +45,7 @@ public class GoogleCloudTest {
         googleMailPage.transitPageToEmail()
                 .openEmail();
         String emailCost = googleMailPage.getCostFromEmail();
-        Assert.assertTrue(calculatorCost.contains(emailCost),"Invalid cost");
+        Assert.assertTrue(calculatorCost.contains(emailCost), "Invalid cost");
         driverSingleton.closeDriver();
 
     }
