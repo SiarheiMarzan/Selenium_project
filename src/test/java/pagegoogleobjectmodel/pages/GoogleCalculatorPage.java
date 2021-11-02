@@ -1,6 +1,7 @@
 package pagegoogleobjectmodel.pages;
 
 import org.openqa.selenium.*;
+import org.openqa.selenium.interactions.Actions;
 import org.openqa.selenium.support.FindBy;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
@@ -78,6 +79,9 @@ public class GoogleCalculatorPage extends AbstractPage {
 
     @FindBy(xpath = "//h2/b[@class='ng-binding']")
     private WebElement actualTotalEstimatedCost;
+
+    @FindBy(xpath = "//input[@type='email']")
+    private WebElement fieldForMailAddress;
 
     public GoogleCalculatorPage() {
         super();
@@ -185,17 +189,24 @@ public class GoogleCalculatorPage extends AbstractPage {
 
     public GoogleCalculatorPage inputCopyEmail() {
         logger.info("Inserting the copied email address from the created mail");
-        WebElement fieldInput = copyInFieldEmail;
-        fieldInput.click();
-        String myText = null;
-        try {
-            myText = (String) Toolkit.getDefaultToolkit().getSystemClipboard().getData(DataFlavor.stringFlavor);
-        } catch (UnsupportedFlavorException e) {
-            e.printStackTrace();
-        } catch (IOException e) {
-            e.printStackTrace();
-        }
-        fieldInput.sendKeys(myText);
+//        WebElement fieldInput = copyInFieldEmail;
+//        fieldInput.click();
+//        String myText = null;
+//        try {
+//            myText = (String) Toolkit.getDefaultToolkit().getSystemClipboard().getData(DataFlavor.stringFlavor);
+//        } catch (UnsupportedFlavorException e) {
+//            e.printStackTrace();
+//        } catch (IOException e) {
+//            e.printStackTrace();
+//        }
+//        fieldInput.sendKeys(myText);
+        WebElement fieldForAddress = fieldForMailAddress;
+        ((JavascriptExecutor) driver).executeScript("arguments[0].scrollIntoView(true)", fieldForAddress);
+        fieldForAddress.sendKeys(Keys.PAGE_UP);
+        Actions builder = new Actions(driver);
+        builder.keyDown(Keys.CONTROL).perform();
+        builder.sendKeys("v").perform();
+        builder.keyUp(Keys.CONTROL).perform();
         return this;
     }
 
