@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd">
+<suite name="All Test Suite" parallel="classes" thread-count="10">
+    <test verbose="2" preserve-order="true" name="D:/automation_project_test/Selenium_project/src/test/resources">
+        <classes>
+            <class name="pagegoogleobjectmodel.test.GoogleCloudTest"></class>
+        </classes>
+    </test>
+</suite>
