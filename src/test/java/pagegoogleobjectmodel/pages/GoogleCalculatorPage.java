@@ -179,6 +179,11 @@ public class GoogleCalculatorPage extends AbstractPage {
         ((JavascriptExecutor) driver).executeScript("arguments[0].scrollIntoView(true);", button);
         button.sendKeys(Keys.PAGE_UP);
         button.sendKeys(Keys.PAGE_UP);
+        try {
+            Thread.sleep(5000);
+        } catch (InterruptedException e) {
+            e.printStackTrace();
+        }
         button.click();
         return this;
     }
