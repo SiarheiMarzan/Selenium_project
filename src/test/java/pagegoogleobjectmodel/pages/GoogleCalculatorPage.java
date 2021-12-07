@@ -81,6 +81,8 @@ public class GoogleCalculatorPage extends AbstractPage {
     @FindBy(xpath = "//input[@type='email']")
     private WebElement fieldForMailAddress;
 
+
+
     public GoogleCalculatorPage() {
         super();
     }
@@ -91,6 +93,8 @@ public class GoogleCalculatorPage extends AbstractPage {
         driver.switchTo().frame(iframeSecond);
         return this;
     }
+
+
 
     public GoogleCalculatorPage activeComputerEngine() {
         logger.info("Activate section 'Compute Engine'");
@@ -203,4 +207,3 @@ public class GoogleCalculatorPage extends AbstractPage {
         return this;
     }
 }
-

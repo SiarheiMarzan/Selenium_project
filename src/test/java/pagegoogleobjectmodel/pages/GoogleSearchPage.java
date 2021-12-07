@@ -16,6 +16,9 @@ public class GoogleSearchPage extends AbstractPage {
     @FindBy(xpath = "//a[@class='gs-title']")
     private WebElement stringSearchResult;
 
+    @FindBy(xpath = "//*[@id=\"cloud-site\"]/div//a[@href='/products/calculator']")
+    private WebElement clickLinkPricingCalculator;
+
     public GoogleSearchPage() {
        super();
     }
@@ -36,6 +39,11 @@ public class GoogleSearchPage extends AbstractPage {
     public GoogleSearchPage moveSearhResult() {
         logger.info("Click on the link field to the found page");
         stringSearchResult.click();
+        return this;
+    }
+
+    public GoogleSearchPage clickPricing() {
+        clickLinkPricingCalculator.click();
         return this;
     }
 

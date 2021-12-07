@@ -21,7 +21,7 @@ public class GoogleMailPage extends AbstractPage {
     @FindBy(xpath = "//span[@class='small_message_icon']")
     private WebElement buttonOpenEmail;
 
-    @FindBy(xpath = "//tr[3]//td[2]//h3")
+    @FindBy(xpath = "//tr[2]//td[2]//h3")
     private WebElement emailCost;
 
     public GoogleMailPage() {
