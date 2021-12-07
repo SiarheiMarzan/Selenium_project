@@ -7,6 +7,7 @@ import pagegoogleobjectmodel.driver.DriverSingleton;
 import pagegoogleobjectmodel.pages.GoogleCalculatorPage;
 import pagegoogleobjectmodel.pages.GoogleMailPage;
 import pagegoogleobjectmodel.pages.GoogleSearchPage;
+import pagegoogleobjectmodel.util.DataReader;
 import pagegoogleobjectmodel.util.TestListener;
 
 @Listeners({TestListener.class})
@@ -21,11 +22,12 @@ public class GoogleCloudTest {
     @Test
     public void googleCalculatorHardTest() {
 
-        googleSearchPage.openPage().cloudGoogleSearch("Google Cloud Platform Pricing Calculator").moveSearhResult();
+        googleSearchPage.openPage().cloudGoogleSearch(DataReader.getTestData("testdata.value.field.find"))
+                .moveSearhResult();
         googleCalculatorPage.getIframe().activeComputerEngine()
-                .activeInstancesAndInput("4")
-                .choiceValue("Series", "n1")
-                .choiceValue("Instance type", "CP-COMPUTEENGINE-VMIMAGE-N1-STANDARD-8")
+                .activeInstancesAndInput(DataReader.getTestData("testdata.number.of.instance"))
+                .choiceValue(DataReader.getTestData("testdata.field.series"), DataReader.getTestData("testdata.list.series"))
+                .choiceValue(DataReader.getTestData("testdata.instance.type"), DataReader.getTestData("testdata.instance.options"))
                 .checkGpu()
                 .typeGpu()
                 .choiseNumberOfGpus()
