@@ -17,7 +17,6 @@ public class GoogleCloudTest {
     private GoogleCalculatorPage googleCalculatorPage = new GoogleCalculatorPage();
     private GoogleMailPage googleMailPage = new GoogleMailPage();
     private GoogleSearchPage googleSearchPage = new GoogleSearchPage();
-    private DriverSingleton driverSingleton = new DriverSingleton();
 
     @Test
     public void googleCalculatorHardTest() {
@@ -47,7 +46,7 @@ public class GoogleCloudTest {
                 .openEmail();
         String emailCost = googleMailPage.getCostFromEmail();
         Assert.assertTrue(calculatorCost.contains(emailCost), "Invalid cost");
-        driverSingleton.closeDriver();
+        DriverSingleton.closeDriver();
 
     }
 

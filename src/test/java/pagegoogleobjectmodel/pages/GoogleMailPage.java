@@ -8,8 +8,10 @@ import org.openqa.selenium.WebElement;
 import org.openqa.selenium.interactions.Action;
 import org.openqa.selenium.interactions.Actions;
 import org.openqa.selenium.support.FindBy;
+import pagegoogleobjectmodel.util.DataReader;
 
 import java.util.ArrayList;
+import java.util.concurrent.TimeUnit;
 
 public class GoogleMailPage extends AbstractPage {
 
@@ -34,17 +36,13 @@ public class GoogleMailPage extends AbstractPage {
         ArrayList<String> tabs = new ArrayList<String>(driver.getWindowHandles());
         driver.switchTo().window(tabs.get(1));
         driver.get("https://10minutemail.com");
-        try {
-            Thread.sleep(2000);
-        } catch (InterruptedException e) {
-            e.printStackTrace();
-        }
         return this;
     }
 
     public GoogleMailPage copyEmail() {
         logger.info("Click on the copy button address email");
         Actions actionProvider = new Actions(driver);
+        driver.manage().timeouts().implicitlyWait(5, TimeUnit.SECONDS);
         Action keydown = actionProvider.keyDown(Keys.CONTROL).sendKeys("c").build();
         keydown.perform();
         return this;
@@ -53,6 +51,7 @@ public class GoogleMailPage extends AbstractPage {
     public GoogleMailPage returnPageBack() {
         logger.info("Return to the calculator page");
         ArrayList<String> tabs = new ArrayList<String>(driver.getWindowHandles());
+        driver.manage().timeouts().implicitlyWait(10, TimeUnit.SECONDS);
         driver.switchTo().window(tabs.get(0));
         return this;
     }

@@ -9,6 +9,8 @@ import org.openqa.selenium.WebElement;
 import org.openqa.selenium.interactions.Actions;
 import org.openqa.selenium.support.FindBy;
 
+import java.util.concurrent.TimeUnit;
+
 public class GoogleCalculatorPage extends AbstractPage {
 
     private final Logger logger = LogManager.getRootLogger();
@@ -82,7 +84,6 @@ public class GoogleCalculatorPage extends AbstractPage {
     private WebElement fieldForMailAddress;
 
 
-
     public GoogleCalculatorPage() {
         super();
     }
@@ -93,7 +94,6 @@ public class GoogleCalculatorPage extends AbstractPage {
         driver.switchTo().frame(iframeSecond);
         return this;
     }
-
 
 
     public GoogleCalculatorPage activeComputerEngine() {
@@ -194,6 +194,7 @@ public class GoogleCalculatorPage extends AbstractPage {
         WebElement fieldForAddress = fieldForMailAddress;
         ((JavascriptExecutor) driver).executeScript("arguments[0].scrollIntoView(true)", fieldForAddress);
         fieldForAddress.sendKeys(Keys.PAGE_UP);
+        fieldForAddress.click();
         Actions builder = new Actions(driver);
         builder.keyDown(Keys.CONTROL).perform();
         builder.sendKeys("v").perform();

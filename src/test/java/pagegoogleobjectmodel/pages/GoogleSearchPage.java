@@ -5,6 +5,7 @@ import org.apache.logging.log4j.Logger;
 import org.openqa.selenium.Keys;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
+import pagegoogleobjectmodel.util.DataReader;
 
 public class GoogleSearchPage extends AbstractPage {
 
@@ -20,12 +21,12 @@ public class GoogleSearchPage extends AbstractPage {
     private WebElement clickLinkPricingCalculator;
 
     public GoogleSearchPage() {
-       super();
+        super();
     }
 
     public GoogleSearchPage openPage() {
         logger.info("Start of the program");
-        driver.get("https://cloud.google.com/");
+        driver.get(DataReader.getTestData("testdata.web.address"));
         return this;
     }
 
