@@ -4,7 +4,12 @@ import io.github.bonigarcia.wdm.WebDriverManager;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.firefox.FirefoxDriver;
+import org.openqa.selenium.remote.DesiredCapabilities;
+import org.openqa.selenium.remote.RemoteWebDriver;
 
+import java.net.MalformedURLException;
+import java.net.URI;
+import java.util.Map;
 import java.util.Optional;
 import java.util.concurrent.TimeUnit;
 
@@ -22,6 +27,19 @@ public class DriverSingleton {
                     WebDriverManager.firefoxdriver().setup();
                     driver = new FirefoxDriver();
                     break;
+                }
+                case "remoteChrome": {
+                    DesiredCapabilities capabilities = new DesiredCapabilities();
+                    capabilities.setCapability("browserName", "chrome");
+                    capabilities.setCapability("browserVersion", "96.0");
+                    try {
+                        driver = new RemoteWebDriver(
+                                URI.create("http://localhost:4444/wd/hub").toURL(),
+                                capabilities
+                        );
+                    } catch (MalformedURLException e) {
+                        e.printStackTrace();
+                    }
                 }
                 default: {
                     WebDriverManager.chromedriver().setup();
