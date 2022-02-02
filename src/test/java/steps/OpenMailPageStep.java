@@ -4,10 +4,13 @@ import io.cucumber.java.en.And;
 import io.cucumber.java.en.Then;
 import io.cucumber.java.en.When;
 import pagegoogleobjectmodel.pages.AbstractPage;
+import pagegoogleobjectmodel.pages.GoogleCalculatorPage;
 import pagegoogleobjectmodel.pages.GoogleMailPage;
+import org.testng.Assert;
 
 public class OpenMailPageStep extends AbstractPage {
     private GoogleMailPage googleMailPage = new GoogleMailPage();
+    private GoogleCalculatorPage googleCalculatorPage = new GoogleCalculatorPage();
 
     @When("Switching to a new tab and creating temporary mail")
     public void transitionNewPage() {
@@ -34,9 +37,10 @@ public class OpenMailPageStep extends AbstractPage {
         googleMailPage.transitPageToEmail();
     }
 
-//    @And("")
-//    public void checkCostResult(){
-//        Assert.assertTrue(calculatorCost.contains(emailCost.getText()), "Invalid cost");
-//    }
+    @Then("CheckCostResult")
+    public void checkCostResult(){
+        String calculatorCost = googleCalculatorPage.calculatedTotalEstimatedCost();
+        Assert.assertTrue(calculatorCost.contains(googleMailPage.getCostFromEmail()), "Invalid cost");
+    }
 
 }

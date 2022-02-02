@@ -2,7 +2,8 @@ Feature: Google Cloud Platform Pricing Calculator
 
   Description: To calculate the cost of renting a cloud platform
 
-  Scenario: Search Google Cloud Platform Pricing Calculator in Google
+  Scenario: Verification of the obtained result of the rental cost of the Google cloud platform through
+            the calculation of the cost on Cloud Platform Pricing Calculator.
     When Open start google page
     Then Enter message in the search text box
     And Select the first result
@@ -32,4 +33,5 @@ Feature: Google Cloud Platform Pricing Calculator
     And Return to the email page
 
     When Open the received email
+    Then CheckCostResult
 
