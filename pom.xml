@@ -37,6 +37,11 @@
                 <artifactId>maven-surefire-plugin</artifactId>
                 <version>${maven-surefire-plugin-version}</version>
                 <configuration>
+                    <systemPropertyVariables>
+                        <allure.results.directory>${project.build.directory}/allure-results</allure.results.directory>
+<!--                        <allure.link.issue.pattern>https://example.org/browse/{}</allure.link.issue.pattern>-->
+<!--                        <allure.link.tms.pattern>https://example.org/browse/{}</allure.link.tms.pattern>-->
+                    </systemPropertyVariables>
                     <suiteXmlFiles>
                         <suiteXmlFile>TestNG.xml</suiteXmlFile>
                     </suiteXmlFiles>

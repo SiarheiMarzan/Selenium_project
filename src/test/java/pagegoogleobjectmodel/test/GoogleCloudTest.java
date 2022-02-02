@@ -12,8 +12,8 @@ import pagegoogleobjectmodel.util.DataReader;
 import pagegoogleobjectmodel.util.TestListener;
 
 @Listeners({TestListener.class})
-@Epic("Checking tests")
-@Feature("GoogleCloudTest")
+@Epic("Allure examples")
+@Feature("TestNG support")
 public class GoogleCloudTest {
 
     private GoogleCalculatorPage googleCalculatorPage = new GoogleCalculatorPage();
