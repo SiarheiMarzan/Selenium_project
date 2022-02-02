@@ -1,5 +1,7 @@
 package pagegoogleobjectmodel.test;
 
+import io.qameta.allure.Epic;
+import io.qameta.allure.Feature;
 import org.testng.Assert;
 import org.testng.annotations.Listeners;
 import org.testng.annotations.Test;
@@ -11,14 +13,15 @@ import pagegoogleobjectmodel.util.DataReader;
 import pagegoogleobjectmodel.util.TestListener;
 
 @Listeners({TestListener.class})
-
+@Epic("Checking tests")
+@Feature("GoogleCloudTest")
 public class GoogleCloudTest {
 
     private GoogleCalculatorPage googleCalculatorPage = new GoogleCalculatorPage();
     private GoogleMailPage googleMailPage = new GoogleMailPage();
     private GoogleSearchPage googleSearchPage = new GoogleSearchPage();
 
-    @Test
+    @Test(priority = 0, description = "")
     public void googleCalculatorHardTest() {
 
         googleSearchPage.openPage().cloudGoogleSearch(DataReader.getTestData("testdata.value.field.find"))
