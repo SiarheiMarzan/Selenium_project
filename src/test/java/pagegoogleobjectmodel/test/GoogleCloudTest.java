@@ -1,7 +1,6 @@
 package pagegoogleobjectmodel.test;
 
-import io.qameta.allure.Epic;
-import io.qameta.allure.Feature;
+import io.qameta.allure.*;
 import org.testng.Assert;
 import org.testng.annotations.Listeners;
 import org.testng.annotations.Test;
@@ -21,7 +20,9 @@ public class GoogleCloudTest {
     private GoogleMailPage googleMailPage = new GoogleMailPage();
     private GoogleSearchPage googleSearchPage = new GoogleSearchPage();
 
-    @Test(priority = 0, description = "")
+    @Test(priority = 0, description = "Checking the compliance of the cost of calculating.")
+    @Severity(SeverityLevel.BLOCKER)
+    @Story("Checking cost.")
     public void googleCalculatorHardTest() {
 
         googleSearchPage.openPage().cloudGoogleSearch(DataReader.getTestData("testdata.value.field.find"))

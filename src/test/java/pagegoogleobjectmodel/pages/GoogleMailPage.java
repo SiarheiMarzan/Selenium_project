@@ -1,5 +1,6 @@
 package pagegoogleobjectmodel.pages;
 
+import io.qameta.allure.Step;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 import org.openqa.selenium.JavascriptExecutor;
@@ -29,6 +30,7 @@ public class GoogleMailPage extends AbstractPage {
         super();
     }
 
+    @Step("Switching to a new tab and creating temporary mail")
     public GoogleMailPage transitionNewPage() {
         logger.info("Switching to a new tab and creating temporary mail");
         ((JavascriptExecutor) driver).executeScript("window.open()");
@@ -38,6 +40,7 @@ public class GoogleMailPage extends AbstractPage {
         return this;
     }
 
+    @Step("Click on the copy button address email")
     public GoogleMailPage copyEmail() {
         logger.info("Click on the copy button address email");
         Actions actionProvider = new Actions(driver);
@@ -47,6 +50,7 @@ public class GoogleMailPage extends AbstractPage {
         return this;
     }
 
+    @Step("Return to the calculator page")
     public GoogleMailPage returnPageBack() {
         logger.info("Return to the calculator page");
         ArrayList<String> tabs = new ArrayList<String>(driver.getWindowHandles());
@@ -55,6 +59,7 @@ public class GoogleMailPage extends AbstractPage {
         return this;
     }
 
+    @Step("Return to the email page")
     public GoogleMailPage transitPageToEmail() {
         logger.info("Return to the email page");
         ArrayList<String> tabs = new ArrayList<String>(driver.getWindowHandles());
@@ -62,12 +67,14 @@ public class GoogleMailPage extends AbstractPage {
         return this;
     }
 
+    @Step("Open the received email")
     public GoogleMailPage openEmail() {
         logger.info("Open the received email");
         buttonOpenEmail.click();
         return this;
     }
 
+    @Step("Get cost from field email")
     public String getCostFromEmail() {
         logger.info("Get cost from field email");
         return emailCost.getText();

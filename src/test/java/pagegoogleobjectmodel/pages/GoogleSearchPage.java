@@ -1,5 +1,6 @@
 package pagegoogleobjectmodel.pages;
 
+import io.qameta.allure.Step;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 import org.openqa.selenium.Keys;
@@ -24,12 +25,14 @@ public class GoogleSearchPage extends AbstractPage {
         super();
     }
 
+    @Step("Open google page")
     public GoogleSearchPage openPage() {
         logger.info("Start of the program");
         driver.get(DataReader.getTestData("testdata.web.address"));
         return this;
     }
 
+    @Step("Click the search button")
     public GoogleSearchPage cloudGoogleSearch(String message) {
         logger.info("Click the search button and enter the value");
         buttonSearch.click();
@@ -37,6 +40,7 @@ public class GoogleSearchPage extends AbstractPage {
         return this;
     }
 
+    @Step("Click on the link field to the found page")
     public GoogleSearchPage moveSearhResult() {
         logger.info("Click on the link field to the found page");
         stringSearchResult.click();

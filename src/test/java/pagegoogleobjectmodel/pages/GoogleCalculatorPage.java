@@ -1,5 +1,6 @@
 package pagegoogleobjectmodel.pages;
 
+import io.qameta.allure.Step;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 import org.openqa.selenium.By;
@@ -88,6 +89,7 @@ public class GoogleCalculatorPage extends AbstractPage {
         super();
     }
 
+    @Step("Open Iframe")
     public GoogleCalculatorPage getIframe() {
         logger.info("open Iframe");
         driver.switchTo().frame(iframeFirst);
@@ -95,13 +97,14 @@ public class GoogleCalculatorPage extends AbstractPage {
         return this;
     }
 
-
+    @Step("Activate section 'Compute Engine'")
     public GoogleCalculatorPage activeComputerEngine() {
         logger.info("Activate section 'Compute Engine'");
         buttonComputerEngine.click();
         return this;
     }
 
+    @Step("Click field 'Number of instance:' and input value")
     public GoogleCalculatorPage activeInstancesAndInput(String number) {
         logger.info("Click field 'Number of instance:' and input value");
         fieldInstanceAndInput.click();
@@ -109,6 +112,7 @@ public class GoogleCalculatorPage extends AbstractPage {
         return this;
     }
 
+    @Step("Select the instance type value")
     public GoogleCalculatorPage choiceValue(String holder, String option) {
         logger.info("Select the instance type value");
         String first = String.format("//*[@placeholder = '%s']", holder);
@@ -118,12 +122,14 @@ public class GoogleCalculatorPage extends AbstractPage {
         return this;
     }
 
+    @Step("Activate section 'Add GPUs'")
     public GoogleCalculatorPage checkGpu() {
         logger.info("Activate section 'Add GPUs'");
         sectionAddGpu.click();
         return this;
     }
 
+    @Step("Click filed 'typeGPU' and select NVIDIA Tesla 100")
     public GoogleCalculatorPage typeGpu() {
         logger.info("Click filed 'typeGPU' and select NVIDIA Tesla 100");
         fieldTypeGpu.click();
@@ -131,6 +137,7 @@ public class GoogleCalculatorPage extends AbstractPage {
         return this;
     }
 
+    @Step("Click field 'Number of GPUs' and select value 'Number of GPUs'")
     public GoogleCalculatorPage choiseNumberOfGpus() {
         logger.info("Click field 'Number of GPUs' and select value 'Number of GPUs'");
         numberOfGpus.click();
@@ -138,6 +145,7 @@ public class GoogleCalculatorPage extends AbstractPage {
         return this;
     }
 
+    @Step("Click field 'LocalSSD' and select value 2x375Gb")
     public GoogleCalculatorPage choiseLocalSsd() {
         logger.info("Click field 'LocalSSD' and select value 2x375Gb");
         fieldLocalSsd.click();
@@ -145,6 +153,7 @@ public class GoogleCalculatorPage extends AbstractPage {
         return this;
     }
 
+    @Step("Click section 'Datacenter location' and select Frankfurt(europe-west3)")
     public GoogleCalculatorPage locationDataCenter() {
         logger.info("Click section 'Datacenter location' and select Frankfurt(europe-west3)");
         fieldDataCenterLocation.click();
@@ -152,6 +161,7 @@ public class GoogleCalculatorPage extends AbstractPage {
         return this;
     }
 
+    @Step("Click section 'Commited usage' and select value '1 Year'")
     public GoogleCalculatorPage commitedUsage() {
         logger.info("Click section 'Commited usage' and select value '1 Year'");
         fieldCommitedUsage.click();
@@ -159,23 +169,27 @@ public class GoogleCalculatorPage extends AbstractPage {
         return this;
     }
 
+    @Step("Click button 'Add to Estimate'")
     public GoogleCalculatorPage addToEstimate() {
         logger.info("Click button 'Add to Estimate'");
         addToEstimate.click();
         return this;
     }
 
+    @Step("Click button 'Email Estimate'")
     public GoogleCalculatorPage choiseEmailEstimate() {
         logger.info("Click button 'Email Estimate'");
         buttonEmailEstimate.click();
         return this;
     }
 
+    @Step("Saving the string value 'Total Estimated Cost'")
     public String calculatedTotalEstimatedCost() {
         logger.info("Saving the string value 'Total Estimated Cost'");
         return actualTotalEstimatedCost.getText();
     }
 
+    @Step("Clicking on field for input email")
     public GoogleCalculatorPage emailEstimateClick() {
         logger.info("Clicking on field for input email");
         emptyFieldPage.click();
@@ -189,6 +203,7 @@ public class GoogleCalculatorPage extends AbstractPage {
         return this;
     }
 
+    @Step("Inserting the copied email address from the created mail")
     public GoogleCalculatorPage inputCopyEmail() {
         logger.info("Inserting the copied email address from the created mail");
         WebElement fieldForAddress = fieldForMailAddress;
@@ -202,6 +217,7 @@ public class GoogleCalculatorPage extends AbstractPage {
         return this;
     }
 
+    @Step("Click button 'Send Email'")
     public GoogleCalculatorPage sendMail() {
         logger.info("Click button 'Send Email'");
         buttonSendMail.click();
