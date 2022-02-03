@@ -59,7 +59,7 @@ public class GoogleCalculatorPage extends AbstractPage {
     @FindBy(xpath = "//md-select[@placeholder='Committed usage']")
     private WebElement fieldCommitedUsage;
 
-    @FindBy(xpath = "//*[@id='select_option_112']")
+    @FindBy(xpath = "//*[@id='select_option_115']/div[1]")
     private WebElement valueCommitedUsage;
 
     @FindBy(xpath = "//button[@class='md-raised md-primary cpc-button md-button md-ink-ripple']")

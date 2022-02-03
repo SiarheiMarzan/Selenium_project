@@ -40,6 +40,7 @@ public class DriverSingleton {
                     } catch (MalformedURLException e) {
                         e.printStackTrace();
                     }
+                    break;
                 }
                 default: {
                     WebDriverManager.chromedriver().setup();

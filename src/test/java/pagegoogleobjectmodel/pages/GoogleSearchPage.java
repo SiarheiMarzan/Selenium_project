@@ -7,6 +7,8 @@ import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
 import pagegoogleobjectmodel.util.DataReader;
 
+import java.util.concurrent.TimeUnit;
+
 public class GoogleSearchPage extends AbstractPage {
 
     private final Logger logger = LogManager.getRootLogger();
@@ -39,6 +41,7 @@ public class GoogleSearchPage extends AbstractPage {
 
     public GoogleSearchPage moveSearhResult() {
         logger.info("Click on the link field to the found page");
+        driver.manage().timeouts().implicitlyWait(5, TimeUnit.SECONDS);
         stringSearchResult.click();
         return this;
     }
