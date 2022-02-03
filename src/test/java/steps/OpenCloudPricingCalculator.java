@@ -10,19 +10,10 @@ import pagegoogleobjectmodel.util.DataReader;
 public class OpenCloudPricingCalculator extends AbstractPage {
     private GoogleSearchPage googleSearchPage = new GoogleSearchPage();
 
-    @When("Open start google page")
+    @When("Going through the search on the Cloud Platform Pricing Calculator")
     public void openPage() {
         googleSearchPage.openPage();
-    }
-
-    @Then("Enter message in the search text box")
-    public void cloudGoogleSearch() {
         googleSearchPage.cloudGoogleSearch(DataReader.getTestData("testdata.value.field.find"));
-    }
-
-    @And("Select the first result")
-    public void moveSearhResult() {
         googleSearchPage.moveSearhResult();
     }
-
 }

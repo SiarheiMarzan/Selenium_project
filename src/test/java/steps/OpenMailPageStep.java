@@ -12,33 +12,25 @@ public class OpenMailPageStep extends AbstractPage {
     private GoogleMailPage googleMailPage = new GoogleMailPage();
     private GoogleCalculatorPage googleCalculatorPage = new GoogleCalculatorPage();
 
-    @When("Switching to a new tab and creating temporary mail")
-    public void transitionNewPage() {
-        googleMailPage.transitionNewPage();
-    }
+    @Then("Create a temporary mail and save the address")
+    public void createTemporaryMailAndSaveAddress() {
 
-    @Then("Click on the copy button address email")
-    public void copyEmail() {
+        googleMailPage.transitionNewPage();
         googleMailPage.copyEmail();
     }
 
-    @And("Return to the calculator page")
+    @And("Return to the cloud calculator page")
     public void returnPageBack() {
         googleMailPage.returnPageBack();
     }
 
-    @When("Open the received email")
+    @Then("Open the received email")
     public void openEmail() {
         googleMailPage.openEmail();
     }
 
-    @And("Return to the email page")
-    public void transitPageToEmail() {
-        googleMailPage.transitPageToEmail();
-    }
-
-    @Then("CheckCostResult")
-    public void checkCostResult(){
+    @And("CheckCostResult")
+    public void checkCostResult() {
         String calculatorCost = googleCalculatorPage.calculatedTotalEstimatedCost();
         Assert.assertTrue(calculatorCost.contains(googleMailPage.getCostFromEmail()), "Invalid cost");
     }

@@ -10,13 +10,7 @@
 
     <properties>
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
-        <aspectj.version>1.9.6</aspectj.version>
-        <selenium-version>4.0.0-beta-3</selenium-version>
-        <testng-version>7.4.0</testng-version>
-        <ashot-version>1.5.4</ashot-version>
-        <allure-testng-version>2.13.9</allure-testng-version>
-        <log4j-version>2.14.1</log4j-version>
-        <extentreports-version>5.0.8</extentreports-version>
+        <aspectj.version>1.9.7</aspectj.version>
         <maven-surefire-plugin-version>3.0.0-M5</maven-surefire-plugin-version>
     </properties>
 
@@ -35,7 +29,7 @@
             <plugin>
                 <groupId>org.apache.maven.plugins</groupId>
                 <artifactId>maven-surefire-plugin</artifactId>
-                <version>${maven-surefire-plugin-version}</version>
+                <version>3.0.0-M5</version>
                 <configuration>
                     <systemPropertyVariables>
                         <allure.results.directory>${project.build.directory}/allure-results</allure.results.directory>
@@ -43,7 +37,7 @@
 <!--                        <allure.link.tms.pattern>https://example.org/browse/{}</allure.link.tms.pattern>-->
                     </systemPropertyVariables>
                     <suiteXmlFiles>
-                        <suiteXmlFile>TestNG.xml</suiteXmlFile>
+                        <suiteXmlFile>testng.xml</suiteXmlFile>
                     </suiteXmlFiles>
                         <argLine>
                             -javaagent:"${settings.localRepository}/org/aspectj/aspectjweaver/${aspectj.version}/aspectjweaver-${aspectj.version}.jar"
@@ -54,7 +48,7 @@
                     <dependency>
                         <groupId>org.aspectj</groupId>
                         <artifactId>aspectjweaver</artifactId>
-                        <version>${aspectj.version}</version>
+                        <version>1.9.7</version>
                     </dependency>
                 </dependencies>
             </plugin>
@@ -62,6 +56,18 @@
     </build>
 
     <dependencies>
+
+        <dependency>
+            <groupId>org.aspectj</groupId>
+            <artifactId>aspectjweaver</artifactId>
+            <version>1.9.7</version>
+        </dependency>
+
+        <dependency>
+            <groupId>org.apache.maven.plugins</groupId>
+            <artifactId>maven-surefire-plugin</artifactId>
+            <version>3.0.0-M5</version>
+        </dependency>
 
         <dependency>
             <groupId>org.seleniumhq.selenium</groupId>
@@ -73,12 +79,6 @@
             <groupId>org.seleniumhq.selenium</groupId>
             <artifactId>selenium-java</artifactId>
             <version>3.141.59</version>
-        </dependency>
-
-        <dependency>
-            <groupId>org.testng</groupId>
-            <artifactId>testng</artifactId>
-            <scope>test</scope>
         </dependency>
 
         <dependency>
@@ -110,26 +110,26 @@
         <dependency>
             <groupId>org.apache.logging.log4j</groupId>
             <artifactId>log4j-api</artifactId>
-            <version>2.11.1</version>
+            <version>2.14.1</version>
         </dependency>
 
         <dependency>
             <groupId>org.apache.logging.log4j</groupId>
             <artifactId>log4j-core</artifactId>
-            <version>2.11.1</version>
+            <version>2.14.1</version>
         </dependency>
 
         <dependency>
             <groupId>io.cucumber</groupId>
             <artifactId>cucumber-java</artifactId>
-            <version>7.0.0</version>
+            <version>7.2.3</version>
             <scope>test</scope>
         </dependency>
 
         <dependency>
             <groupId>io.cucumber</groupId>
             <artifactId>cucumber-testng</artifactId>
-            <version>6.1.1</version>
+            <version>7.2.3</version>
             <scope>test</scope>
         </dependency>
 
@@ -142,10 +142,8 @@
         <dependency>
             <groupId>ru.yandex.qatools.ashot</groupId>
             <artifactId>ashot</artifactId>
-            <version>${ashot-version}</version>
+            <version>1.5.4</version>
         </dependency>
-
-
 
     </dependencies>
 </project>

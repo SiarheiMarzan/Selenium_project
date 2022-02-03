@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd">
 <suite name="All Test Suite">
-    <test verbose="2" preserve-order="true" name="D:/automation_project_test/Selenium_project/src/test/resources">
+    <test verbose="2" preserve-order="true" name="C:\Training\Cucumber\Selenium_project\src\test\resources">
         <classes>
             <class name="pagegoogleobjectmodel.test.GoogleCloudTest"></class>
         </classes>
