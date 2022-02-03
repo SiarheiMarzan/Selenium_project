@@ -10,7 +10,7 @@ import pagegoogleobjectmodel.util.DataReader;
 public class OpenCloudPricingCalculator extends AbstractPage {
     private GoogleSearchPage googleSearchPage = new GoogleSearchPage();
 
-    @When("Going through the search on the Cloud Platform Pricing Calculator")
+    @Given("Going through the search on the Cloud Platform Pricing Calculator")
     public void openPage() {
         googleSearchPage.openPage();
         googleSearchPage.cloudGoogleSearch(DataReader.getTestData("testdata.value.field.find"));

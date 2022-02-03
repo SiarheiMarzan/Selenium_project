@@ -11,7 +11,7 @@ public class FieldCloudPricingCalculatorStep extends AbstractPage {
     private GoogleCalculatorPage googleCalculatorPage = new GoogleCalculatorPage();
     private GoogleMailPage googleMailPage = new GoogleMailPage();
 
-    @And("Fill in the calculator fields with test data")
+    @When("Fill in the calculator fields with test data")
     public void fillInTheFieldsWithTestData() {
         googleCalculatorPage.getIframe();
         googleCalculatorPage.activeComputerEngine();
