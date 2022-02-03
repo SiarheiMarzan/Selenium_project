@@ -36,11 +36,12 @@ public class FieldCloudPricingCalculatorStep extends AbstractPage {
     @And("Saving the string value 'Total Estimated Cost'")
     public void saveCalculatorCost() {
         String calculatorCost = googleCalculatorPage.calculatedTotalEstimatedCost();
+        googleCalculatorPage.choiseEmailEstimate();
     }
 
     @And("Send email and get the cost to a temporary email")
     public void insertAddressAndSendToTemporaryEmailCost() {
-        googleCalculatorPage.choiseEmailEstimate();
+//        googleCalculatorPage.choiseEmailEstimate();
         googleCalculatorPage.emailEstimateClick();
         googleCalculatorPage.inputCopyEmail();
         googleCalculatorPage.sendMail();

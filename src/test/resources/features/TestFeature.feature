@@ -2,8 +2,6 @@ Feature: Google Cloud Platform Pricing Calculator
 
   Description: To calculate the cost of renting a cloud platform
 
-  @severity=blocker
-  @issue=<ISSUE-NUMBER>
   Scenario: Verification of the obtained result of the rental cost of the Google cloud platform through
             the calculation of the cost on Cloud Platform Pricing Calculator.
     Given Going through the search on the Cloud Platform Pricing Calculator
