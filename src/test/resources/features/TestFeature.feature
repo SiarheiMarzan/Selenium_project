@@ -8,12 +8,12 @@ Feature: Google Cloud Platform Pricing Calculator
             the calculation of the cost on Cloud Platform Pricing Calculator.
 
     When Going through the search on the Cloud Platform Pricing Calculator
-    Then Fill in the calculator fields with test data
+    And Fill in the calculator fields with test data
     And Add to Estimate by clicking the button
-    When Saving the string value 'Total Estimated Cost'
-    Then Create a temporary mail and save the address
+    And Saving the string value 'Total Estimated Cost'
+    And Create a temporary mail and save the address
     And Return to the cloud calculator page
-    When Send email and get the cost to a temporary email
-    Then Open the received email
-    And CheckCostResult
+    And Send email and get the cost to a temporary email
+    And Open the received email
+    Then CheckCostResult
 

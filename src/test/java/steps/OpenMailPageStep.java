@@ -2,17 +2,16 @@ package steps;
 
 import io.cucumber.java.en.And;
 import io.cucumber.java.en.Then;
-import io.cucumber.java.en.When;
+import org.testng.Assert;
 import pagegoogleobjectmodel.pages.AbstractPage;
 import pagegoogleobjectmodel.pages.GoogleCalculatorPage;
 import pagegoogleobjectmodel.pages.GoogleMailPage;
-import org.testng.Assert;
 
 public class OpenMailPageStep extends AbstractPage {
     private GoogleMailPage googleMailPage = new GoogleMailPage();
     private GoogleCalculatorPage googleCalculatorPage = new GoogleCalculatorPage();
 
-    @Then("Create a temporary mail and save the address")
+    @And("Create a temporary mail and save the address")
     public void createTemporaryMailAndSaveAddress() {
 
         googleMailPage.transitionNewPage();
@@ -24,12 +23,12 @@ public class OpenMailPageStep extends AbstractPage {
         googleMailPage.returnPageBack();
     }
 
-    @Then("Open the received email")
+    @And("Open the received email")
     public void openEmail() {
         googleMailPage.openEmail();
     }
 
-    @And("CheckCostResult")
+    @Then("CheckCostResult")
     public void checkCostResult() {
         String calculatorCost = googleCalculatorPage.calculatedTotalEstimatedCost();
         Assert.assertTrue(calculatorCost.contains(googleMailPage.getCostFromEmail()), "Invalid cost");

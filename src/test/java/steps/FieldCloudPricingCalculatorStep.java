@@ -1,9 +1,7 @@
 package steps;
 
 import io.cucumber.java.en.And;
-import io.cucumber.java.en.Then;
 import io.cucumber.java.en.When;
-import io.qameta.allure.Step;
 import pagegoogleobjectmodel.pages.AbstractPage;
 import pagegoogleobjectmodel.pages.GoogleCalculatorPage;
 import pagegoogleobjectmodel.pages.GoogleMailPage;
@@ -13,7 +11,7 @@ public class FieldCloudPricingCalculatorStep extends AbstractPage {
     private GoogleCalculatorPage googleCalculatorPage = new GoogleCalculatorPage();
     private GoogleMailPage googleMailPage = new GoogleMailPage();
 
-    @When("Fill in the calculator fields with test data")
+    @And("Fill in the calculator fields with test data")
     public void fillInTheFieldsWithTestData() {
         googleCalculatorPage.getIframe();
         googleCalculatorPage.activeComputerEngine();
@@ -35,7 +33,7 @@ public class FieldCloudPricingCalculatorStep extends AbstractPage {
         googleCalculatorPage.addToEstimate();
     }
 
-    @When("Saving the string value 'Total Estimated Cost'")
+    @And("Saving the string value 'Total Estimated Cost'")
     public void saveCalculatorCost() {
         String calculatorCost = googleCalculatorPage.calculatedTotalEstimatedCost();
     }
