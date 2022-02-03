@@ -195,6 +195,7 @@ public class GoogleCalculatorPage extends AbstractPage {
         ((JavascriptExecutor) driver).executeScript("arguments[0].scrollIntoView(true)", fieldForAddress);
         fieldForAddress.sendKeys(Keys.PAGE_UP);
         fieldForAddress.click();
+        driver.manage().timeouts().implicitlyWait(5,TimeUnit.SECONDS);
         Actions builder = new Actions(driver);
         builder.keyDown(Keys.CONTROL).perform();
         builder.sendKeys("v").perform();
