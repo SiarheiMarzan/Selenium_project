@@ -14,14 +14,11 @@ import java.util.Optional;
 import java.util.concurrent.TimeUnit;
 
 public class DriverSingleton {
-
     private static WebDriver driver;
-
+    static DesiredCapabilities capabilities = new DesiredCapabilities();
     private DriverSingleton() {
     }
-
     public static WebDriver getDriver() {
-        DesiredCapabilities capabilities = new DesiredCapabilities();
         if (null == driver) {
             switch (System.getProperty("browser")) {
                 case "firefox": {
@@ -36,14 +33,7 @@ public class DriverSingleton {
                             "enableVNC", true,
                             "enableVideo", true
                     ));
-                    try {
-                        driver = new RemoteWebDriver(
-                                URI.create("http://localhost:4444/wd/hub").toURL(),
-                                capabilities
-                        );
-                    } catch (MalformedURLException e) {
-                        e.printStackTrace();
-                    }
+                    getRemoteDriver();
                     break;
                 }
                 case "remoteFirefox": {
@@ -53,14 +43,7 @@ public class DriverSingleton {
                             "enableVNC", true,
                             "enableVideo", true
                     ));
-                    try {
-                        driver = new RemoteWebDriver(
-                                URI.create("http://localhost:4444/wd/hub").toURL(),
-                                capabilities
-                        );
-                    } catch (MalformedURLException e) {
-                        e.printStackTrace();
-                    }
+                    getRemoteDriver();
                     break;
                 }
                 default: {
@@ -73,7 +56,16 @@ public class DriverSingleton {
         }
         return driver;
     }
-
+    public static void getRemoteDriver() {
+        try {
+            driver = new RemoteWebDriver(
+                    URI.create("http://localhost:4444/wd/hub").toURL(),
+                    capabilities
+            );
+        } catch (MalformedURLException e) {
+            e.printStackTrace();
+        }
+    }
     public static void closeDriver() {
         Optional.ofNullable(driver).ifPresent(webDriver -> {
             webDriver.quit();
