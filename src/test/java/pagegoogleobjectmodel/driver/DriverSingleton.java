@@ -21,6 +21,7 @@ public class DriverSingleton {
     }
 
     public static WebDriver getDriver() {
+        DesiredCapabilities capabilities = new DesiredCapabilities();
         if (null == driver) {
             switch (System.getProperty("browser")) {
                 case "firefox": {
@@ -29,9 +30,29 @@ public class DriverSingleton {
                     break;
                 }
                 case "remoteChrome": {
-                    DesiredCapabilities capabilities = new DesiredCapabilities();
                     capabilities.setCapability("browserName", "chrome");
-                    capabilities.setCapability("browserVersion", "96.0");
+                    capabilities.setCapability("browserVersion", "98.0");
+                    capabilities.setCapability("selenoid:options", Map.<String, Object>of(
+                            "enableVNC", true,
+                            "enableVideo", true
+                    ));
+                    try {
+                        driver = new RemoteWebDriver(
+                                URI.create("http://localhost:4444/wd/hub").toURL(),
+                                capabilities
+                        );
+                    } catch (MalformedURLException e) {
+                        e.printStackTrace();
+                    }
+                    break;
+                }
+                case "remoteFirefox": {
+                    capabilities.setCapability("browserName", "firefox");
+                    capabilities.setCapability("browserVersion", "97.0");
+                    capabilities.setCapability("selenoid:options", Map.<String, Object>of(
+                            "enableVNC", true,
+                            "enableVideo", true
+                    ));
                     try {
                         driver = new RemoteWebDriver(
                                 URI.create("http://localhost:4444/wd/hub").toURL(),
