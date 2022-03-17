@@ -14,10 +14,13 @@ import java.util.Optional;
 import java.util.concurrent.TimeUnit;
 
 public class DriverSingleton {
+
     private static WebDriver driver;
     static DesiredCapabilities capabilities = new DesiredCapabilities();
+
     private DriverSingleton() {
     }
+
     public static WebDriver getDriver() {
         if (null == driver) {
             switch (System.getProperty("browser")) {
@@ -33,7 +36,7 @@ public class DriverSingleton {
                             "enableVNC", true,
                             "enableVideo", true
                     ));
-                    getRemoteDriver();
+                    driver = getRemoteDriver();
                     break;
                 }
                 case "remoteFirefox": {
@@ -43,7 +46,7 @@ public class DriverSingleton {
                             "enableVNC", true,
                             "enableVideo", true
                     ));
-                    getRemoteDriver();
+                    driver = getRemoteDriver();
                     break;
                 }
                 default: {
@@ -56,16 +59,19 @@ public class DriverSingleton {
         }
         return driver;
     }
-    public static void getRemoteDriver() {
+
+    public static WebDriver getRemoteDriver() {
         try {
-            driver = new RemoteWebDriver(
+            return new RemoteWebDriver(
                     URI.create("http://localhost:4444/wd/hub").toURL(),
                     capabilities
             );
         } catch (MalformedURLException e) {
             e.printStackTrace();
         }
+        return null;
     }
+
     public static void closeDriver() {
         Optional.ofNullable(driver).ifPresent(webDriver -> {
             webDriver.quit();
